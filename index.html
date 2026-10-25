@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Upload a PDF or text file and get a shareable link in seconds.">
+  <title>Mini File Host — Share a file</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <nav class="nav"><a class="brand" href="/"><span class="brand-mark">m</span> mini<span>host</span></a><a class="nav-link" href="#how">How it works <span>↗</span></a></nav>
+  <main>
+    <section class="hero">
+      <div class="pill"><span class="pulse"></span> SIMPLE FILE SHARING</div>
+      <h1>Your file.<br><span>One simple link.</span></h1>
+      <p class="sub">Upload a PDF or text file and get a shareable link in seconds.<br>No account. No sign-up. Just upload and share.</p>
+      <form id="uploadForm" class="upload-card">
+        <label class="dropzone" id="dropzone" for="fileInput">
+          <input id="fileInput" name="file" type="file" accept=".pdf,.txt,application/pdf,text/plain" hidden>
+          <span class="upload-icon">↑</span><strong id="fileTitle">Drop your PDF or TXT file here</strong><span id="fileHint">or <u>browse files</u> · up to 25 MB</span>
+        </label>
+        <label class="slug-field" for="slugInput">Choose your link name</label>
+        <div class="slug-input-wrap">
+          <span id="slugPrefix">/f/</span>
+          <input id="slugInput" name="slug" type="text" maxlength="60" pattern="[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*" placeholder="my-notes" autocomplete="off" required>
+        </div>
+        <p class="slug-help">Use letters, numbers, and hyphens. Example: my-notes</p>
+        <button class="publish-btn" id="publishBtn" type="submit">Upload & generate link <span>→</span></button>
+        <p class="privacy">✦ &nbsp;PDF and TXT only · No account required · Up to 25 MB</p>
+        <div id="message" class="message" role="status" aria-live="polite"></div>
+      </form>
+      <div class="trust"><span>SHARE DOCUMENTS</span><b>PDFs</b><i>·</i><b>Text files</b><i>·</i><b>Notes</b><i>·</i><b>Documents</b></div>
+    </section>
+    <section id="how" class="how"><div class="section-eyebrow">THREE STEPS. THAT'S IT.</div><h2>Upload. Link. <span>Share.</span></h2><div class="steps">
+      <article><div class="step-number">01</div><div class="step-icon">▤</div><h3>Choose your file</h3><p>Select a PDF or plain-text TXT file from your device.</p></article>
+      <article><div class="step-number">02</div><div class="step-icon">↑</div><h3>Upload it</h3><p>We save your file and create a unique link automatically.</p></article>
+      <article><div class="step-number">03</div><div class="step-icon">↗</div><h3>Share your link</h3><p>Anyone with the link can open the PDF or read the text file.</p></article>
+    </div></section>
+  </main>
+  <footer><a class="brand" href="/"><span class="brand-mark">m</span> mini<span>host</span></a><span>A tiny home for your files.</span></footer>
+  <script src="/app.js"></script>
+</body></html>

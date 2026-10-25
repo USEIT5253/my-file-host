@@ -1,0 +1,9 @@
+{
+  "name": "mini-host",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A simple ZIP-to-static-site hosting starter",
+  "main": "server.js",
+  "scripts": { "start": "node server.js", "dev": "node --watch server.js" },
+  "dependencies": { "express": "^4.21.2", "multer": "^1.4.5-lts.1", "unzipper": "^0.12.3", "slugify": "^1.6.6" }
+}
