@@ -10,7 +10,7 @@ const FILES_DIR = path.join(__dirname, 'uploaded-files');
 const TMP_DIR = path.join(__dirname, 'tmp');
 fs.mkdirSync(FILES_DIR, { recursive: true });
 fs.mkdirSync(TMP_DIR, { recursive: true });
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
 
 const allowedExtensions = new Set(['.pdf', '.txt']);
 const upload = multer({
