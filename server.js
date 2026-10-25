@@ -12,6 +12,10 @@ fs.mkdirSync(FILES_DIR, { recursive: true });
 fs.mkdirSync(TMP_DIR, { recursive: true });
 app.use(express.static(__dirname));
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 const allowedExtensions = new Set(['.pdf', '.txt']);
 const upload = multer({
   dest: TMP_DIR,
