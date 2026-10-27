@@ -14,7 +14,7 @@
     <section class="hero">
       <div class="pill"><span class="pulse"></span> SIMPLE FILE SHARING</div>
       <h1>Your file.<br><span>One simple link.</span></h1>
-      <p class="sub">Upload a PDF or text file and get a shareable link in seconds.<br>No account. No sign-up. Just upload and share.</p>
+      <p class="sub">Upload a PDF or text file and get a shareable link in seconds.<br>No account. No sign-up. Links work for 5 hours and require a password.</p>
       <form id="uploadForm" class="upload-card">
         <label class="dropzone" id="dropzone" for="fileInput">
           <input id="fileInput" name="file" type="file" accept=".pdf,.txt,application/pdf,text/plain" hidden>
@@ -26,8 +26,10 @@
           <input id="slugInput" name="slug" type="text" maxlength="60" pattern="[a-zA-Z0-9]+(-[a-zA-Z0-9]+)*" placeholder="my-notes" autocomplete="off" required>
         </div>
         <p class="slug-help">Use letters, numbers, and hyphens. Example: my-notes</p>
+        <label class="slug-field" for="passwordInput">Set a password for this file</label>
+        <input id="passwordInput" name="password" type="password" minlength="4" maxlength="200" autocomplete="new-password" placeholder="At least 4 characters" required style="box-sizing:border-box;width:100%;padding:14px;border:1px solid #ddd;border-radius:12px;margin:8px 0 14px">
         <button class="publish-btn" id="publishBtn" type="submit">Upload & generate link <span>→</span></button>
-        <p class="privacy">✦ &nbsp;PDF and TXT only · No account required · Up to 25 MB</p>
+        <p class="privacy">✦ &nbsp;PDF and TXT only · No account required · Links expire after 3 hours · Up to 25 MB</p>
         <div id="message" class="message" role="status" aria-live="polite"></div>
       </form>
       <div class="trust"><span>SHARE DOCUMENTS</span><b>PDFs</b><i>·</i><b>Text files</b><i>·</i><b>Notes</b><i>·</i><b>Documents</b></div>
@@ -35,7 +37,7 @@
     <section id="how" class="how"><div class="section-eyebrow">THREE STEPS. THAT'S IT.</div><h2>Upload. Link. <span>Share.</span></h2><div class="steps">
       <article><div class="step-number">01</div><div class="step-icon">▤</div><h3>Choose your file</h3><p>Select a PDF or plain-text TXT file from your device.</p></article>
       <article><div class="step-number">02</div><div class="step-icon">↑</div><h3>Upload it</h3><p>We save your file and create a unique link automatically.</p></article>
-      <article><div class="step-number">03</div><div class="step-icon">↗</div><h3>Share your link</h3><p>Anyone with the link can open the PDF or read the text file.</p></article>
+      <article><div class="step-number">03</div><div class="step-icon">↗</div><h3>Share your link</h3><p>Anyone with the link and the correct password can open the file for 5 hours after upload.</p></article>
     </div></section>
   </main>
   <footer><a class="brand" href="/"><span class="brand-mark">m</span> mini<span>host</span></a><span>A tiny home for your files.</span></footer>
