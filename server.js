@@ -11,7 +11,11 @@ const META_DIR = path.join(__dirname, 'file-metadata');
 const TMP_DIR = path.join(__dirname, 'tmp');
 const FILE_TTL_MS = 5 * 60 * 60 * 1000; // Files expire 5 hours after upload.
 for (const dir of [FILES_DIR, META_DIR, TMP_DIR]) fs.mkdirSync(dir, { recursive: true });
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 const allowedExtensions = new Set(['.pdf', '.txt']);
 const upload = multer({
