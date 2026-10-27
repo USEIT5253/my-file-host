@@ -6,6 +6,7 @@ const fileHint = document.querySelector('#fileHint');
 const message = document.querySelector('#message');
 const button = document.querySelector('#publishBtn');
 const slugInput = document.querySelector('#slugInput');
+const passwordInput = document.querySelector('#passwordInput');
 slugInput.addEventListener('input', () => { slugInput.value = slugInput.value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60); });
 
 function showFile(file) {
@@ -28,7 +29,9 @@ form.addEventListener('submit', async e => {
   if (file.size > 25 * 1024 * 1024) { message.className = 'message error'; message.textContent = 'The file must be smaller than 25 MB.'; return; }
   const slug = slugInput.value.trim();
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) || slug.length > 60) { message.className = 'message error'; message.textContent = 'Choose a link name using letters, numbers, and hyphens.'; return; }
-  const data = new FormData(); data.append('slug', slug); data.append('file', file);
+  const password = passwordInput.value;
+  if (password.length < 4 || password.length > 200) { message.className = 'message error'; message.textContent = 'Choose a password between 4 and 200 characters.'; return; }
+  const data = new FormData(); data.append('slug', slug); data.append('password', password); data.append('file', file);
   button.disabled = true; button.innerHTML = 'Uploading… <span>↗</span>';
   try {
     const response = await fetch('/api/upload', { method: 'POST', body: data });
