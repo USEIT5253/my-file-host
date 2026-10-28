@@ -10,7 +10,11 @@ const TTL=5*60*60*1000, MAX=25*1024*1024;
 if(!process.env.SUPABASE_URL||!process.env.SUPABASE_SERVICE_ROLE_KEY){console.error('Missing Supabase environment variables');process.exit(1)}
 const sb=createClient(process.env.SUPABASE_URL,process.env.SUPABASE_SERVICE_ROLE_KEY,{auth:{persistSession:false,autoRefreshToken:false}});
 const upload=multer({storage:multer.memoryStorage(),limits:{fileSize:MAX,files:1},fileFilter:(_r,f,cb)=>['.pdf','.txt'].includes(path.extname(f.originalname).toLowerCase())?cb(null,true):cb(new Error('Only PDF and TXT files are allowed.'))});
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 app.use(express.urlencoded({extended:false}));
 const valid=s=>typeof s==='string'&&s.length<=60&&/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(s);
 const cleanName=s=>path.basename(String(s||'file')).replace(/[\\r\\n\\0"]/g,'').slice(0,180)||'file';
